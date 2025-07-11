@@ -1,0 +1,13 @@
+# Bỏ qua tất cả file biên dịch Java
+*.class
+
+# Bỏ qua thư mục build (nếu dùng IDE)
+bin/
+build/
+out/
+
+# Bỏ qua các file cấu hình IDE
+*.log
+*.iml
+*.idea/
+.vscode/
