@@ -1,5 +1,20 @@
 package Inheritance;
 
+// Interface with abstract, default, and static methods
+interface CanRun {
+    void run(); // abstract method
+
+    // Default method (Java 8+)
+    default void jump() {
+        System.out.println("This animal can jump.");
+    }
+
+    // Static method (Java 8+)
+    static void showRunningGuide() {
+        System.out.println("Running guide: Warm-up, then run steadily.");
+    }
+}
+
 // Final class: cannot be extended
 final class Constants {
     public static final double PI = 3.14159;
@@ -23,10 +38,10 @@ abstract class Animal {
     }
 }
 
-// Subclass of Animal, demonstrating overriding and super keyword
-class Dog extends Animal {
+// Subclass Dog implements interface CanRun
+class Dog extends Animal implements CanRun {
     public Dog(String name) {
-        super(name); // call superclass constructor
+        super(name);
     }
 
     // Overriding method
@@ -43,9 +58,15 @@ class Dog extends Animal {
             System.out.println(name + " growls...");
         }
     }
+
+    // Implement run() method from CanRun
+    @Override
+    public void run() {
+        System.out.println(name + " is running fast!");
+    }
 }
 
-// Another subclass
+// Another subclass Cat
 class Cat extends Animal {
     public Cat(String name) {
         super(name);
@@ -62,23 +83,25 @@ public class inheritance {
         System.out.println("Final constant - School: " + Constants.SCHOOL_NAME);
         System.out.println("Final constant - PI: " + Constants.PI);
 
-        // Polymorphism: Animal reference to Dog and Cat
+        // Polymorphism
         Animal a1 = new Dog("Dog1");
         Animal a2 = new Cat("Cat1");
 
-        a1.makeSound(); // Woof!
-        a2.makeSound(); // Meow!
+        a1.makeSound();
+        a2.makeSound();
 
-        // Casting: from Animal to Dog
+        // Casting
         if (a1 instanceof Dog) {
             Dog d = (Dog) a1;
-            d.makeSound("happy"); // Overloaded method
+            d.makeSound("happy");  // Overloaded
+            d.run();               // Interface method
+            d.jump();              // Default method from interface
         }
+
+        // Static method from interface
+        CanRun.showRunningGuide();
 
         // Final method
         a1.info();
-
-        // Abstract class cannot be instantiated
-        // Animal animal = new Animal("Test"); // Compilation error
     }
 }

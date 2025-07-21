@@ -1,12 +1,11 @@
 package Interface;
 
-// Interface định nghĩa hành vi tính diện tích và chu vi
+
 interface Shape {
     double calculateArea();
     double calculatePerimeter();
 }
 
-// Lớp Square implements giao diện Shape
 class Square implements Shape {
     private double side;
 
@@ -25,7 +24,6 @@ class Square implements Shape {
     }
 }
 
-// Lớp Rectangle implements giao diện Shape
 class Rectangle implements Shape {
     private double length;
     private double width;
@@ -46,7 +44,6 @@ class Rectangle implements Shape {
     }
 }
 
-// Lớp main để chạy chương trình
 public class Practice1{
     public static void main(String[] args) {
         Shape square = new Square(5);
