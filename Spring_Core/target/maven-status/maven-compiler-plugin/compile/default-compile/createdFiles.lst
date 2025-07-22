@@ -1,0 +1,5 @@
+com\example\service\UserService.class
+com\example\entity\User.class
+com\example\repository\UserRepository.class
+com\example\config\AppConfig.class
+com\example\MainApp.class
